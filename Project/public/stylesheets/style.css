@@ -1,0 +1,61 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  outline: none;
+  padding: 0;
+}
+
+.navbar-brand {
+  font-family: 'Sniglet', cursive;
+}
+
+.top-nav-collapse {
+  background-color: #7283A7 !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+
+@media (max-width: 768px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #7283A7 !important;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #7283A7 !important;
+  }
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("https://images.pexels.com/photos/7658/food-pizza-box-chalkboard.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.intro-info-content{
+  padding: 30% 0;
+}
+
+footer.page-footer {
+  background-color: #383838;
+}
+
+@media (max-width: 450px) {
+  .display-3 {
+    font-size: 3rem;
+  }
+}
