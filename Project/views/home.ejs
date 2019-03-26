@@ -1,21 +1,23 @@
 <% include partials/header %>
 
 <header>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <strong>Pizza Paradise <img src="https://img.icons8.com/wired/64/000000/italian-pizza.png"
-                        style="height: 40px;"></strong>
+                                            style="height: 40px;"></strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
+                    <!-- the ejs line checks for the current page and adds the "active" class to the nav-item-->
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                        <a class="nav-link <%= typeof page !== "undefined" && page === "home" ? "active" : "" %>" href="/">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -30,18 +32,47 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav nav-flex-icons ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">
-                            <i class="fas fa-user"></i>
-                            <span class="clearfix d-none d-sm-inline-block">Log In</span>
-                        </a>
-                    </li>
+                    <% if(!currentUser){ %>
+                        <li class="nav-item <%= typeof page !== "undefined" && page === "login" ? "active" : "" %>">
+                            <a class="nav-link" href="/login">
+                                <i class="fas fa-user"></i>
+                                <span class="clearfix d-none d-sm-inline-block">Log In</span>
+                            </a>
+                        </li>
+                    <% } else{ %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout"><i class="fas fa-user"></i> <span
+                                        class="clearfix d-none d-sm-inline-block">Log Out</span></a>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
-    </nav>
-    <!-- End Navbar -->
 
+
+    </nav>
+<!--flash alert-->
+    <div class="text-center">
+        <% if(error && error.length>0){ %>
+            <div class="alert alert-danger mb-0 mt-5 alert-dismissible " role="alert" style="position: relative;">
+                <%= error %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% } %>
+        <% if(success && success.length>0){ %>
+            <div class="alert alert-success mb-0 alert-dismissible " role="alert" style="position: absolute; margin-top: 4.7rem; width:100%">
+                <%= success %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% }   %>
+    </div>
+
+
+    <!-- End Navbar -->
     <div class="parallax">
         <div>
             <div class="container h-100 d-flex justify-content-center align-items-center">
