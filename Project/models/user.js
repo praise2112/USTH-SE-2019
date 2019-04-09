@@ -21,7 +21,7 @@ var UserSchema = new mongoose.Schema({
 
 	favorites: [{ 
 		type: mongoose.Schema.Types.ObjectId, 
-		ref: 'pizza' 
+		ref: 'pizzas'
 	}],
 });
 

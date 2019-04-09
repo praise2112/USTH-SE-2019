@@ -1,7 +1,6 @@
 <% include partials/header %>
 
 <header>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <div class="container">
@@ -16,19 +15,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <!-- the ejs line checks for the current page and adds the "active" class to the nav-item-->
-                    <li class="nav-item active">
-                        <a class="nav-link <%= typeof page !== "undefined" && page === "home" ? "active" : "" %>" href="/">Home
-                            <span class="sr-only">(current)</span>
+                    <li class="nav-item <%= typeof page !== "undefined" && page === "home" ? "active" : "" %>">
+                        <a class="nav-link " href="/">Home
+                            <!--<span class="sr-only">(current)</span>-->
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
+                    <li class="nav-item <%= typeof page !== "undefined" && page === "menu" ? "active" : "" %>">
+                        <a class="nav-link " href="/pizzas">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#bestSellers">Best seller</a>
+                        <a class="nav-link" href="/#bestSellers">Best seller</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contactUs" class="nav-link">Contact us</a>
+                        <a href="/#contactUs" class="nav-link">Contact us</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav nav-flex-icons ml-auto">
@@ -51,10 +50,11 @@
 
 
     </nav>
-<!--flash alert-->
+    <!-- End Navbar -->
+    <!--flash alert-->
     <div class="text-center">
         <% if(error && error.length>0){ %>
-            <div class="alert alert-danger mb-0 mt-5 alert-dismissible " role="alert" style="position: relative;">
+            <div class="alert alert-danger mb-0  alert-dismissible " role="alert" style="position: absolute; margin-top: 4.7rem; width:100%">
                 <%= error %>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -70,9 +70,7 @@
             </div>
         <% }   %>
     </div>
-
-
-    <!-- End Navbar -->
+</header>
     <div class="parallax">
         <div>
             <div class="container h-100 d-flex justify-content-center align-items-center">
