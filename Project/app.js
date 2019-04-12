@@ -17,6 +17,7 @@ var dotenv = require('dotenv').config({path: path.join(__dirname, '.env')}); // 
 
 //router setup
 var indexRoutes = require('./routes/index');
+var pizzaRoutes = require('./routes/pizzas');
 // var usersRouter = require('./routes/users');
 
 //setup db
@@ -28,7 +29,9 @@ mongoose.connect('mongodb://localhost:27017/projectdb', { useNewUrlParser: true 
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use ( bodyParser.json());
+
 app.use(express.static(__dirname + '/public'));
 app.use(flash());
 app.use(methodOverride("_method"));     // for authentication
@@ -58,6 +61,7 @@ app.use(async function (req, res, next) {
 
 //router config
 app.use('/', indexRoutes);
+app.use("/pizzas",pizzaRoutes);
 // app.use('/users', usersRouter);
 
 app.listen(3000, function(){

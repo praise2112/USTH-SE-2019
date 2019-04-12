@@ -8,6 +8,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   outline: none;
   padding: 0;
+
 }
 
 .navbar-brand {
@@ -58,4 +59,7 @@ footer.page-footer {
   .display-3 {
     font-size: 3rem;
   }
+}
+.selected{
+  color: red;
 }

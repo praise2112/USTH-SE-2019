@@ -1,0 +1,39 @@
+<% include ../partials/header%>
+
+<div style="height: 50px"></div>
+<div class="row justify-content-center">
+    <div class="col-md-12 text-center">
+        <h1>Create a New Pizzas</h1>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-4">
+        <form action="/pizzas" method="post" >  <!--enctype is what allows us to have the upload option-->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" type="text" name="pizza[name]" placeholder="Name" id="name">
+            </div>
+            <div class="form-group">
+                <label for="cost">Cost</label>
+                <input class="form-control" type="number" name="pizza[cost]" placeholder="cost" min="0.01" step="0.01" id="cost">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image</label><br>
+                <input class="form-control" type="text" name="pizza[image]" placeholder="image url" id="image">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input class="form-control" type="text" name="pizza[description]" placeholder="Description" id="description">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+
+        </form>
+        <a href="/pizzas">Go To Menu</a>
+    </div>
+
+</div>
+
+
+
+<% include ../partials/footer%>
