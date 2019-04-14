@@ -3,4 +3,4 @@ What I have changed (Phuong):
     - Change "narrower" card to "normal" card in menu page
     - Move pizza to "pizza section" in menu.ejs
     - Refractor footer in the home page
-    
+    - Add section after the main home page.
