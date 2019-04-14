@@ -6,10 +6,10 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <strong>Pizza Paradise <img src="https://img.icons8.com/wired/64/000000/italian-pizza.png"
-                                            style="height: 40px;"></strong>
+                        style="height: 40px;"></strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -32,17 +32,17 @@
                 </ul>
                 <ul class="nav navbar-nav nav-flex-icons ml-auto">
                     <% if(!currentUser){ %>
-                        <li class="nav-item <%= typeof page !== "undefined" && page === "login" ? "active" : "" %>">
-                            <a class="nav-link" href="/login">
-                                <i class="fas fa-user"></i>
-                                <span class="clearfix d-none d-sm-inline-block">Log In</span>
-                            </a>
-                        </li>
+                    <li class="nav-item <%= typeof page !== "undefined" && page === "login" ? "active" : "" %>">
+                        <a class="nav-link" href="/login">
+                            <i class="fas fa-user"></i>
+                            <span class="clearfix d-none d-sm-inline-block">Log In</span>
+                        </a>
+                    </li>
                     <% } else{ %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout"><i class="fas fa-user"></i> <span
-                                        class="clearfix d-none d-sm-inline-block">Log Out</span></a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout"><i class="fas fa-user"></i> <span
+                                class="clearfix d-none d-sm-inline-block">Log Out</span></a>
+                    </li>
                     <% } %>
                 </ul>
             </div>
@@ -54,42 +54,44 @@
     <!--flash alert-->
     <div class="text-center">
         <% if(error && error.length>0){ %>
-            <div class="alert alert-danger mb-0  alert-dismissible " role="alert" style="position: absolute; margin-top: 4.7rem; width:100%">
-                <%= error %>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+        <div class="alert alert-danger mb-0  alert-dismissible " role="alert"
+            style="position: absolute; margin-top: 4.7rem; width:100%">
+            <%= error %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <% } %>
         <% if(success && success.length>0){ %>
-            <div class="alert alert-success mb-0 alert-dismissible " role="alert" style="position: absolute; margin-top: 4.7rem; width:100%">
-                <%= success %>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+        <div class="alert alert-success mb-0 alert-dismissible " role="alert"
+            style="position: absolute; margin-top: 4.7rem; width:100%">
+            <%= success %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <% }   %>
     </div>
 </header>
-    <div class="parallax">
-        <div>
-            <div class="container h-100 d-flex justify-content-center align-items-center">
-                <div class="row pt-5 mt-3">
-                    <div class="col-md-12 mb-3">
-                        <div class="intro-info-content text-center">
-                            <h1 class="display-3 mb-5 wow fadeInDown" data-wow-delay="0.3s">Pizza
-                                <a class="deep-purple-text font-weight-bold">Paradise</a>
-                            </h1>
-                            <h5 class="text-uppercase mb-5 mt-1 font-weight-bold wow fadeInDown" data-wow-delay="0.3s">
-                                Fast delivery & special prices</h5>
-                            <a class="btn btn-outline-deep-purple btn-lg wow fadeInDown" data-wow-delay="0.3s">Menu</a>
-                            <a class="btn btn-deep-purple btn-lg wow fadeInDown" data-wow-delay="0.3s">Best Seller</a>
-                        </div>
+<div class="parallax">
+    <div>
+        <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="row pt-5 mt-3">
+                <div class="col-md-12 mb-3">
+                    <div class="intro-info-content text-center">
+                        <h1 class="display-3 mb-5 wow fadeInDown" data-wow-delay="0.3s">Pizza
+                            <a class="deep-purple-text font-weight-bold">Paradise</a>
+                        </h1>
+                        <h5 class="text-uppercase mb-5 mt-1 font-weight-bold wow fadeInDown" data-wow-delay="0.3s">
+                            Fast delivery & special prices</h5>
+                        <a class="btn btn-outline-deep-purple btn-lg wow fadeInDown" data-wow-delay="0.3s">Menu</a>
+                        <a class="btn btn-deep-purple btn-lg wow fadeInDown" data-wow-delay="0.3s">Best Seller</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </header>
 
 <!-- Main layout -->
@@ -190,55 +192,120 @@
     <div class="container">
         <div class="row">
             <!--First column-->
-            <div class="col-md-3">
-                <h5 class="text-uppercase font-weight-bold">Contact us</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae dicta consequatur temporibus ipsa
-                    optio tempore magnam, eveniet provident officiis! Vitae?</p>
+            <div class="col-md-4 text-center">
+                <h5 class="text-uppercase font-weight-bold">Address</h5>
+                <p>Pizza Paradise</p>
+                <p>1234 Sunset ABC,
+                    Hoang Quoc Viet, Hanoi</p>
+                <!--Social buttons-->
+                <hr>
+                <h5 class="text-uppercase font-weight-bold">Connect Us</h5>
+                <div class="mb-3">
+                    <a class="btn-floating btn-sm btn-fb" type="button" role="button"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn-floating btn-sm btn-tw" type="button" role="button"><i class="fab fa-twitter"></i></a>
+                    <a class="btn-floating btn-sm btn-yt" type="button" role="button"><i class="fab fa-youtube"></i></a>
+                    <a class="btn-floating btn-sm btn-git" type="button" role="button"><i class="fab fa-github"></i></a>
+                    <a class="btn-floating btn-sm btn-ins" type="button" role="button"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+                <!--/.Social buttons-->
             </div>
             <!--/.First column-->
 
             <hr class="w-100 clearfix d-md-none">
 
             <!--Second column-->
-            <div class="col-md-3 ml-auto">
-                <h5 class="text-uppercase font-weight-bold">Delivery hours</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
-                </ul>
+            <div class="col-md-4 ml-auto">
+                <h5 class="text-uppercase font-weight-bold text-center">Delivery hours</h5>
+                <div class="container">
+                    <div id="textbox">
+                        <p style="float: left;">Sun</p>
+                        <p style="float: right;">11:00AM - 7:45PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Mon</p>
+                        <p style="float: right;">10:00AM - 9:45PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Tue</p>
+                        <p style="float: right;">Closed</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Wed</p>
+                        <p style="float: right;">10:00AM - 9:45PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Thur</p>
+                        <p style="float: right;">10:00AM - 9:45PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Fri</p>
+                        <p style="float: right;">10:00AM - 10:45PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Sat</p>
+                        <p style="float: right;">11:00AM - 10:45PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
             </div>
+
             <!--/.Second column-->
 
             <hr class="w-100 clearfix d-md-none">
 
             <!--Third column-->
-            <div class="col-md-3 ml-auto">
-                <h5 class="text-uppercase font-weight-bold">Take out hour</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
-                </ul>
+            <div class="col-md-4 ml-auto">
+                <h5 class="text-uppercase font-weight-bold text-center">Take out hour</h5>
+                <div class="container">
+                    <div id="textbox">
+                        <p style="float: left;">Sun</p>
+                        <p style="float: right;">11:00AM - 8:00PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Mon</p>
+                        <p style="float: right;">10:00AM - 10:00PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Tue</p>
+                        <p style="float: right;">Closed</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Wed</p>
+                        <p style="float: right;">10:00AM - 10:00PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Thur</p>
+                        <p style="float: right;">10:00AM - 10:00PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Fri</p>
+                        <p style="float: right;">10:00AM - 11:00PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div id="textbox">
+                        <p style="float: left;">Sat</p>
+                        <p style="float: right;">11:00AM - 11:00PM</p>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
             </div>
             <!--/.Third column-->
         </div>
     </div>
     <!--/.Footer Links-->
-
-    <hr>
-
-    <!--Social buttons-->
-    <div class="text-center mb-3">
-        <a class="btn-floating btn-md btn-fb" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
-        <a class="btn-floating btn-md btn-tw" type="button" role="button"><i class="fab fa-twitter"></i></a>
-        <a class="btn-floating btn-md btn-yt" type="button" role="button"><i class="fab fa-youtube"></i></a>
-        <a class="btn-floating btn-md btn-git" type="button" role="button"><i class="fab fa-github"></i></a>
-        <a class="btn-floating btn-md btn-ins" type="button" role="button"><i class="fab fa-instagram"></i></a>
-    </div>
-    <!--/.Social buttons-->
 
     <!--Copyright-->
     <div class="footer-copyright pt-3 text-center">
