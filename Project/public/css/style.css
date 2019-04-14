@@ -11,6 +11,9 @@ body {
 
 }
 
+.mx-20{
+  margin: 0 20px;
+}
 .navbar-brand {
   font-family: 'Sniglet', cursive;
 }

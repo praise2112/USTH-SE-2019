@@ -10,7 +10,9 @@ var express         = require("express"),
     LocalStrategy   = require("passport-local"),     // login and SignUp authentication
     cookieParser    = require("cookie-parser"),
     methodOverride  = require("method-override"),
+    seedDB          = require("./seed/seed");
     User            = require("./models/user");     // user model
+
 
 //cofigure dotenv
 var dotenv = require('dotenv').config({path: path.join(__dirname, '.env')}); // for env variables
@@ -36,6 +38,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(flash());
 app.use(methodOverride("_method"));     // for authentication
 app.use(cookieParser('secret'));        // for authentication
+seedDB();
 
 
 //  PASSPORT CONFIGURATION

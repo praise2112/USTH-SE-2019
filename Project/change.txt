@@ -1,0 +1,5 @@
+What I have changed (Phuong):
+    - Add seed.js and some sample datas
+    - Change "narrower" card to "normal" card in menu page
+    - Move pizza to "pizza section"
+    
