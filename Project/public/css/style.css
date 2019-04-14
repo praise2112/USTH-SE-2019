@@ -20,6 +20,7 @@ footer{
 }
 
 #textbox {
+  font-size: 14px;
   width: 300px;
 }
 
@@ -65,9 +66,6 @@ footer{
   background-size: cover;
 }
 
-#bestSellers{
-  /* background: #D72323; */
-}
 .intro-info-content {
   padding: 30% 0;
 }
