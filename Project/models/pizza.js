@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 // SCHEMA SETUP
 let pizzaSchema = new mongoose.Schema({
     name: String,
+    type: String,
     cost: Number,
     image: String,
     imageId: String,    // for deleting in cloudinary

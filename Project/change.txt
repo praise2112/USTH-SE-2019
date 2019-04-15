@@ -4,3 +4,6 @@ What I have changed (Phuong):
     - Move pizza to "pizza section" in menu.ejs
     - Refractor footer in the home page
     - Add section after the main home page.
+    - Add "type" attribute for the "pizza" model, so now we can sell more stuff, not only pizza
+    - Add "drink" to seed.js
+    - Move footer to the footer.ejs in partials folder
