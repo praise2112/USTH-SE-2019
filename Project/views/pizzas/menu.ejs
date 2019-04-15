@@ -68,8 +68,8 @@
     </div>
     <% }   %>
 </div>
-<div style="height: 8rem"></div>
-<h1 id="foodName">This is the menu page to all the food</h1>
+<div style="height: 5rem"></div>
+<h1 class="text-center" id="menuText">Menu</h1>
 <!--if user is admin show add new pizzas option-->
 <% if( currentUser && currentUser.isAdmin){ %>
 <p>
@@ -79,7 +79,7 @@
 
 <!-- Pizza section -->
 <div class="container">
-    <h1 class="text-center" id="foodName">Pizza</h1>
+    <h1 class="text-center" id="categoryName">Pizza</h1>
     <!-- Quote for fun :)) -->
     <blockquote class="blockquote text-center m-0 p-0">
         <p class="mb-0">There's no better feeling in the world than a warm pizza box on your lap.</p>
@@ -107,7 +107,7 @@
                     <!-- Category & Title -->
                     <h4 class="card-title">
                         <strong>
-                            <a href=""><%= pizza.name %> </a>
+                            <a href="" id="foodName"><%= pizza.name %> </a>
                         </strong>
                     </h4>
                     <!--Rating-->
@@ -171,7 +171,7 @@
 
 <!-- Pizza section -->
 <div class="container">
-    <h1 class="text-center" id="foodName">Drink</h1>
+    <h1 class="text-center" id="categoryName">Drink</h1>
     <!-- Grid row -->
     <div class="row shop-items">
         <!--reading pizza data-->
@@ -194,7 +194,7 @@
                     <!-- Category & Title -->
                     <h4 class="card-title">
                         <strong>
-                            <a href=""><%= pizza.name %> </a>
+                            <a href="" id="foodName"><%= pizza.name %> </a>
                         </strong>
                     </h4>
                     <!--Rating-->

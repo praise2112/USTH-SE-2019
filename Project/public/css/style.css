@@ -24,12 +24,6 @@ footer {
   width: 300px;
 }
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-
 .navbar-brand {
   font-family: 'Sniglet', cursive;
 }
@@ -40,18 +34,6 @@ footer {
 
 .navbar:not(.top-nav-collapse) {
   background: transparent !important;
-}
-
-@media (max-width: 768px) {
-  .navbar:not(.top-nav-collapse) {
-    background: #7283A7 !important;
-  }
-}
-
-@media (min-width: 800px) and (max-width: 850px) {
-  .navbar:not(.top-nav-collapse) {
-    background: #7283A7 !important;
-  }
 }
 
 .parallax {
@@ -74,17 +56,52 @@ footer.page-footer {
   background-color: #383838;
 }
 
-@media (max-width: 450px) {
-  .display-3 {
-    font-size: 3rem;
-  }
-}
-
 .selected {
   color: red;
 }
 
-#foodName {
+#menuText {
   color: red;
   text-shadow: -1px 1px 0 #fdfff2, -2px 2px 0 #a4a6a9;
+  font-size: 72px;
+}
+#categoryName {
+  color: red;
+  text-shadow: -1px 1px 0 #fdfff2, -2px 2px 0 #a4a6a9;
+  padding-bottom: 2px;
+}
+
+#categoryName::after{
+  content: "";
+  width: 10%;
+  height: 3px;
+  display: block;
+  margin: 5px auto;
+  background-color: #5c6268;
+}
+
+#foodName{
+  font-family: 'Muli', sans-serif;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #7283A7 !important;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #7283A7 !important;
+  }
+}
+@media (max-width: 450px) {
+  .display-3 {
+    font-size: 3rem;
+  }
 }
