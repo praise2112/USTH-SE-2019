@@ -67,7 +67,7 @@ router.post("/register", function(req, res){
   User.register(newUser, req.body.password, function(err, user){
     if(err){
       console.log(err);
-      return res.render("login", {error: err.message});
+      return res.render("login", {error: err.message, csrfToken: req.csrfToken()});
     }
     passport.authenticate("local")(req, res, function(){
       req.flash("success", "Successfully Signed Up! Nice to meet you " + req.body.username);
