@@ -1,5 +1,98 @@
 <% include partials/header %>
 
-<h1>This is the page to order food</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-danger fixed-top scrolling-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <strong>Pizza Paradise</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- the ejs line checks for the current page and adds the "active" class to the nav-item-->
+                <li class="nav-item <%= typeof page !== "undefined" && page === "home" ? "active" : "" %>">
+                    <a class="nav-link " href="/">Home
+                        <!--<span class="sr-only">(current)</span>-->
+                    </a>
+                </li>
+                <li class="nav-item <%= typeof page !== "undefined" && page === "menu" ? "active" : "" %>">
+                    <a class="nav-link " href="/foods">Menu</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link modalToggle" ><i
+                                class="fas fa-shopping-cart"></i> <span class="clearfix d-none d-sm-inline-block">Cart
+                            <% if (session.cart){%>
+                            <span class="badge-danger"> <%=session.cart.totalQty%> </span>
+                            <%} %>
+                        </span></a>
+                </li>
+                <% if(currentUser){ %>
+                    <li class="nav-item  <%= typeof page !== "undefined" && page === "orders" ? "active" : "" %>">
+                        <a class="nav-link " href="/orders" ><i
+                                    class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Orders
+                        </span>
+                        </a>
+                    </li>
+                <% } %>
+                <% if(!currentUser){ %>
+                    <li class="nav-item <%= typeof page !== "undefined" && page === "login" ? "active" : "" %>">
+                        <a class="nav-link" href="/login">
+                            <i class="fas fa-user"></i>
+                            <span class="clearfix d-none d-sm-inline-block">Log In</span>
+                        </a>
+                    </li>
+                <% } else{ %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout"><i class="fas fa-user"></i> <span
+                                    class="clearfix d-none d-sm-inline-block">Log Out</span></a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+
+
+</nav>
+<div style="height: 70px"></div>
+<div class="row justify-content-center ">
+    <div class="col-md-8  text-center">
+
+        <h2>My Orders</h2>
+        <hr>
+        <% orders.forEach((order)=>{%>
+        <div class="card">
+            <div class="card-body">
+                <ul class="list-group">
+                        <%   order.cart.generateArray =function() {
+                            var arr = [];
+                            for (var id in this.items) {
+                                arr.push(this.items[id]);
+                            }
+                            return arr;
+                        };
+                            cartfoods = order.cart.generateArray()
+                        cartfoods.forEach((cartfood)=>{%>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="badge badge-primary badge-pill">$<%=cartfood.cost%></span>
+                        <%=cartfood.item.name%> | <%=cartfood.qty%> Units
+                    </li>
+                    <%})%>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <strong>Total qty:<%=order.cart.totalQty%></strong></br>
+                <strong>Ordered By: <%=order.name%></strong></br>
+                <strong>Delivered to: <%=order.address%></strong></br>
+                <strong>Total Price:<%=order.cart.totalCost%></strong>
+            </div>
+        </div>
+        <% }) %>
+
+    </div>
+</div>
 
 <% include partials/footer %>

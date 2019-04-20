@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 // SCHEMA SETUP
-let pizzaSchema = new mongoose.Schema({
+let foodSchema = new mongoose.Schema({
     name: String,
     type: String,
     cost: Number,
@@ -10,7 +10,7 @@ let pizzaSchema = new mongoose.Schema({
 
     //time stamp
     createdAt: { type: Date, default: Date.now},
-    // to get the person who created the campground
+    // to get the person who created the food
     author: {
         id:{
             type: mongoose.Schema.Types.ObjectId,
@@ -24,5 +24,5 @@ let pizzaSchema = new mongoose.Schema({
         default: 0
     }
 });
-var Pizza = mongoose.model("Pizza", pizzaSchema);
-module.exports = Pizza;
+var Food = mongoose.model("Food", foodSchema);
+module.exports = Food;

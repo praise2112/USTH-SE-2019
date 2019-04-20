@@ -17,11 +17,20 @@ var UserSchema = new mongoose.Schema({
 	password: { 
 		type: String, 
 	},
+	address:{
+		type:String,
+	},
+	remarks: {
+		type: String,
+	},
+	phoneNo: {
+		type: Number,
+	},
 	isAdmin: {type: Boolean, default: false},
 
 	favorites: [{ 
 		type: mongoose.Schema.Types.ObjectId, 
-		ref: 'pizzas'
+		ref: 'Food'
 	}],
 });
 

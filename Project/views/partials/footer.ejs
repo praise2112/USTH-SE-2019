@@ -130,6 +130,7 @@
 </footer>
 <!--/.Footer-->
 
+
 <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 
 <script type="text/javascript" src="/js/popper.min.js"></script>
@@ -139,6 +140,42 @@
 <script type="text/javascript" src="/js/mdb.min.js"></script>
 
 <script type="text/javascript" src="/js/login_script.js"></script>
+<script>
+    $('#myModal').modal({ show: false})
+    $('#modalContactForm').modal({ show: false})
+
+    var on = $("#myModal").hasClass("modalOn");
+    var on2 = $("#modalContactForm").hasClass("modalOn");
+    if(on){
+        $('#myModal').modal('show')
+    }
+    if(on2){
+        $('#modalContactForm').modal('show')
+    }
+    $(".modalToggle").on("click",function () {
+
+        $('#myModal').modal('show')
+
+    })
+
+        var buttons = $(".add")
+        for(var i=0; i< buttons.length; i++){
+            buttons[i].addEventListener("click", function () {
+                this.addClass("active")
+
+                var foodId = this.getAttribute("foodId")
+                if (this.hasClass("active")) {
+                    this.attr("href", "/remove/" + foodId);
+                } else {
+                    this.attr("href", "/add-to-cart/" + foodId);
+                }
+            })
+        }
+
+    // $("#reduce").on("click",function (event) {
+    //     event.preventDefault()
+    // })
+</script>
 
 </body>
 

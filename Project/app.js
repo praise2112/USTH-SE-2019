@@ -10,8 +10,11 @@ var express         = require("express"),
     LocalStrategy   = require("passport-local"),     // login and SignUp authentication
     cookieParser    = require("cookie-parser"),
     methodOverride  = require("method-override"),
-    seedDB          = require("./seed/seed");
-    User            = require("./models/user");     // user model
+    logger          = require('morgan'),
+    validator       = require("express-validator"),
+    MongoStore      = require("connect-mongo")(session),
+    seedDB          = require("./seed/seed"),
+    User            = require("./models/user");    // user model
 
 
 //cofigure dotenv
@@ -19,7 +22,7 @@ var dotenv = require('dotenv').config({path: path.join(__dirname, '.env')}); // 
 
 //router setup
 var indexRoutes = require('./routes/index');
-var pizzaRoutes = require('./routes/pizzas');
+var foodRoutes = require('./routes/foods');
 // var usersRouter = require('./routes/users');
 
 //setup db
@@ -31,8 +34,10 @@ mongoose.connect('mongodb://localhost:27017/projectdb', { useNewUrlParser: true 
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 
+app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use ( bodyParser.json());
+app.use(validator());
 
 app.use(express.static(__dirname + '/public'));
 app.use(flash());
@@ -42,10 +47,12 @@ seedDB();
 
 
 //  PASSPORT CONFIGURATION
-app.use(require("express-session")({
+app.use(session({
     secret: "One again Rusty wins the cutest dog!",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MongoStore({  mongooseConnection: mongoose.connection }),  //to store session using Mongo Store
+    cookie: {maxAge: 180 * 60 * 1000}  // configuring how long the session should live before they expire. (using 180 mins)
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -59,12 +66,13 @@ app.use(async function (req, res, next) {
     res.locals.currentUser = req.user;
     res.locals.error =  req.flash("error");
     res.locals.success =  req.flash("success");
+    res.locals.session = req.session;
     next();
 });
 
 //router config
 app.use('/', indexRoutes);
-app.use("/pizzas",pizzaRoutes);
+app.use("/foods",foodRoutes);
 // app.use('/users', usersRouter);
 
 app.listen(3000, function(){

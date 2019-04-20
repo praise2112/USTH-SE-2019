@@ -1,5 +1,5 @@
 var moongose = require("mongoose");
-var Food = require("../models/pizza");
+var Food = require("../models/food");
 
 var foodData = [
     // PIZZA
@@ -64,33 +64,33 @@ var foodData = [
     {
         name: "Braxston Beer",
         type: "drink",
-        cost: 1.49,
+        cost: 129,
         image: "https://images.unsplash.com/photo-1547122719-ebf42306abd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60g",
         description: "200 calories"
     },
     {
         name: "Pepsi",
         type: "drink",
-        cost: 1.20,
+        cost: 120,
         image: "https://images.pexels.com/photos/1292294/pexels-photo-1292294.jpeg?auto=compress",
         description: "200 calories"
     },
     {
         name: "Coke",
         type: "drink",
-        cost: 1.15,
+        cost: 19,
         image: "https://images.unsplash.com/photo-1520568444554-4698653b539c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
         description: "225 calories"
     },
     {
         name: "Juice",
         type: "drink",
-        cost: 1.6,
+        cost: 15,
         image: "https://images.unsplash.com/photo-1514995669114-6081e934b693?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
         description: "180 calories"
     },
 
-]
+];
 
 function seedDB() {
     //Remove all pizza
@@ -98,10 +98,10 @@ function seedDB() {
         if (err) {
             console.log(err);
         }
-        console.log("Removed all pizzas in the database!");
+        console.log("Removed all foods in the database!");
         // add a few pizza
         foodData.forEach(function (seed) {
-            Food.create(seed, function (err, pizza) {
+            Food.create(seed, function (err, food) {
                 if (err) {
                     console.log(err)
                 } else {

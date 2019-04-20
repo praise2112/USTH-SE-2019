@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li class="nav-item <%= typeof page !== "undefined" && page === "menu" ? "active" : "" %>">
-                        <a class="nav-link " href="/pizzas">Menu</a>
+                        <a class="nav-link " href="/foods">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link scroll" href="/#bestSellers">Best seller</a>
@@ -30,6 +30,21 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav nav-flex-icons ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link modalToggle"  ><i
+                                    class="fas fa-shopping-cart"></i> <span class="clearfix d-none d-sm-inline-block">Cart
+                                <% if (session.cart ){%>
+                                <span class="badge badge-danger"><%=session.cart.totalQty%> </span>
+                                <%} %>
+                            </span></a>
+                    </li>
+                    <% if(currentUser){ %>
+                        <li class="nav-item  <%= typeof page !== "undefined" && page === "orders" ? "active" : "" %>">
+                            <a class="nav-link " href="/orders" ><i class="fas fa-cash-register"></i><span class="clearfix d-none d-sm-inline-block"> Orders
+                        </span>
+                            </a>
+                        </li>
+                    <% } %>
                     <% if(!currentUser){ %>
                     <li class="nav-item <%= typeof page !== "undefined" && page === "login" ? "active" : "" %>">
                         <a class="nav-link" href="/login">
@@ -225,7 +240,74 @@
         <!--Section: best sellers-->
     </div>
 </section>
+<div class="modal fade <%= typeof toggleModal !== "undefined" && toggleModal === true ? "modalOn" : "" %>" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog " role="document" style="width: 50%; max-width:110%">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Your cart</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <!--Body-->
 
+            <div class="modal-body">
+                <% if (cartfoods && totalCost!=0    ){%>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="pr-0"></th>
+                            <th class="pl-0">Meals</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% var i=0
+                        cartfoods.forEach((cartfood)=>{ %>
+                        <%i++%>
+                        <tr>
+                            <th scope="row"><%=i%></th>
+                            <th class="pr-0"><img src="<%= cartfood.item.image%>" alt="" style=" max-width:60%" class="img-fluid"></th>
+                            <td class="pl-0"><%=cartfood.item.name%></td>
+                            <td><%=cartfood.cost%>$</td>
+                            <td class="text-center"><%=cartfood.qty%></td>
+                            <td>
+                                <a href="/increase/<%=cartfood.item._id%>" ><i class="fas fa-plus "></i></a>
+                            </td>
+                            <td>
+                                <a href="/reduce/<%=cartfood.item._id%>" id="reduce"> <i class="fas fa-minus"></i></a>
+                            </td>
+                            <td><a href="/remove/<%=cartfood.item._id%>" id="remove" class="btn btn-sm btn-outline-danger">Remove</a></td>
+                        </tr>
+                        <%});%>
+                        <tr class="total">
+                            <th scope="row"></th>
+                            <th></th>
+                            <td>Total</td>
+                            <td><%=totalCost%>$</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                <% } else {%>
+                    cart is empty
+                <% } %>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                <a href="/checkout" class="btn btn-primary">Checkout</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <% include partials/footer %>
